@@ -47,16 +47,6 @@ class Recipe
     private ?DateTimeImmutable $createdAt;
 
     /**
-     * Updated at.
-     *
-     * @var DateTimeImmutable|null
-     *
-     * @psalm-suppress PropertyNotSetInConstructor
-     */
-    #[ORM\Column(type: 'datetime_immutable')]
-    private ?DateTimeImmutable $updatedAt;
-
-    /**
      * Getter for Id.
      *
      * @return int|null Id
@@ -104,25 +94,5 @@ class Recipe
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
-    }
-
-    /**
-     * Getter for updated at.
-     *
-     * @return DateTimeImmutable|null Updated at
-     */
-    public function getUpdatedAt(): ?DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Setter for updated at.
-     *
-     * @param DateTimeImmutable|null $updatedAt Updated at
-     */
-    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
     }
 }
