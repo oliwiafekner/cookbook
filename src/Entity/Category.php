@@ -1,22 +1,25 @@
 <?php
 /**
- * Recipe entity.
+ * Category entity.
  */
 
 namespace App\Entity;
 
-use App\Repository\RecipeRepository;
+use App\Repository\CategoryRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Class Recipe.
+ * Class Category.
  *
  * @psalm-suppress MissingConstructor
  */
-#[ORM\Entity(repositoryClass: RecipeRepository::class)]
-#[ORM\Table(name: 'recipes')]
-class Recipe
+#[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[ORM\Table(name: 'categories')]
+#[ORM\UniqueConstraint(name: 'uq_categories_title', columns: ['title'])]
+#[UniqueEntity(fields: ['title'])]
+class Category
 {
     /**
      * Primary key.
@@ -33,26 +36,16 @@ class Recipe
      *
      * @var string|null
      */
-    #[ORM\Column(type: 'string', length: 255)]
-    private ?string $title = null;
+    #[ORM\Column(type: 'string', length: 64)]
+    private ?string $title;
 
     /**
      * Created at.
      *
      * @var DateTimeImmutable|null
-     *
-     * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
     private ?DateTimeImmutable $createdAt;
-
-    /**
-     * Many To One.
-     *
-     * @var
-     */
-    #[ORM\ManyToOne(targetEntity: Category::class)]
-    private $category;
 
     /**
      * Getter for Id.
@@ -102,25 +95,5 @@ class Recipe
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
-    }
-
-    /**
-     * Getter for category.
-     */
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    /**
-     * Setter for category.
-     *
-     * @return $this
-     */
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
-
-        return $this;
     }
 }
