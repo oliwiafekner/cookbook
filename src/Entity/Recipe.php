@@ -47,12 +47,15 @@ class Recipe
     private ?DateTimeImmutable $createdAt;
 
     /**
-     * Many To One.
+     * Category.
      *
-     * @var
+     * @ORM\ManyToOne(
+     *     fetch="EXTRA_LAZY"
+     * )
      */
     #[ORM\ManyToOne(targetEntity: Category::class)]
-    private $category;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
 
     /**
      * Getter for Id.

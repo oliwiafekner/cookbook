@@ -21,6 +21,19 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    /**
+     * Query all records.
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->select('category', 'partial recipes.{id}')
+            ->join('category.recipes', 'recipes')
+            ->orderBy('category.createdAt', 'DESC');
+    }
+
     public function add(Category $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
