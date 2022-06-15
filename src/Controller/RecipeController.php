@@ -6,8 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
-use App\Repository\RecipeRepository;
-use Knp\Component\Pager\PaginatorInterface;
+use App\Service\RecipeServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,24 +19,30 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecipeController extends AbstractController
 {
     /**
+     * Recipe service.
+     */
+    private RecipeServiceInterface $recipeService;
+
+    /**
+     * Constructor.
+     */
+    public function __construct(RecipeServiceInterface $recipeService)
+    {
+        $this->recipeService = $recipeService;
+    }
+
+    /**
      * Index action.
      *
-     * @param Request            $request          HTTP Request
-     * @param RecipeRepository   $recipeRepository Recipe repository
-     * @param PaginatorInterface $paginator        Paginator
+     * @param Request $request HTTP Request
      *
      * @return Response HTTP response
      */
-    #[Route(
-        name: 'recipe_index',
-        methods: 'GET'
-    )]
-    public function index(Request $request, RecipeRepository $recipeRepository, PaginatorInterface $paginator): Response
+    #[Route(name: 'recipe_index', methods: 'GET')]
+    public function index(Request $request): Response
     {
-        $pagination = $paginator->paginate(
-            $recipeRepository->queryAll(),
-            $request->query->getInt('page', 1),
-            RecipeRepository::PAGINATOR_ITEMS_PER_PAGE
+        $pagination = $this->recipeService->getPaginatedList(
+            $request->query->getInt('page',1)
         );
 
         return $this->render('recipe/index.html.twig', ['pagination' => $pagination]);
@@ -46,7 +51,7 @@ class RecipeController extends AbstractController
     /**
      * Show action.
      *
-     * @param Recipe $recipe Recipe entity
+     * @param Recipe $recipe Recipe
      *
      * @return Response HTTP response
      */
@@ -54,13 +59,10 @@ class RecipeController extends AbstractController
         '/{id}',
         name: 'recipe_show',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET',
+        methods: 'GET'
     )]
     public function show(Recipe $recipe): Response
     {
-        return $this->render(
-            'recipe/show.html.twig',
-            ['recipe' => $recipe]
-        );
+        return $this->render('recipe/show.html.twig', ['recipe' => $recipe]);
     }
 }

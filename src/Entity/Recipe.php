@@ -47,6 +47,14 @@ class Recipe
     private ?DateTimeImmutable $createdAt;
 
     /**
+     * Content.
+     *
+     * @var string|null
+     */
+    #[ORM\Column(type: 'string', length: 16777215)]
+    private ?string $content = null;
+
+    /**
      * Category.
      *
      * @ORM\ManyToOne(
@@ -105,6 +113,26 @@ class Recipe
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Getter for content.
+     *
+     * @return string|null Content
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Setter for content.
+     *
+     * @param string|null $content Content
+     */
+    public function setContent(?string $content): void
+    {
+        $this->content = $content;
     }
 
     /**
