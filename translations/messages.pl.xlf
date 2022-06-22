@@ -26,6 +26,10 @@
         <source>label.none</source>
         <target>Brak</target>
       </trans-unit>
+      <trans-unit id="label.password">
+        <source>label.password</source>
+        <target>Hasło</target>
+      </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>Lista jest pusta.</target>
@@ -90,6 +94,14 @@
         <source>title.recipe_delete</source>
         <target>Usuń przepis #%id%</target>
       </trans-unit>
+      <trans-unit id="title.login">
+        <source>title.login</source>
+        <target>Logowanie</target>
+      </trans-unit>
+      <trans-unit id="title.welcome">
+        <source>title.welcome</source>
+        <target>Witaj</target>
+      </trans-unit>
       <trans-unit id="action.show">
         <source>action.show</source>
         <target>Pokaż</target>
@@ -117,6 +129,14 @@
       <trans-unit id="action.back_to_list">
         <source>action.back_to_list</source>
         <target>Powrót do listy</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+      <trans-unit id="action.logout">
+        <source>action.logout</source>
+        <target>Wyloguj się</target>
       </trans-unit>
     </body>
   </file>

@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block body %}
+    {% if app.user %}
+        <div>{{ 'title.welcome'|trans }} <strong>{{ app.user.userIdentifier }}</strong>!</div>
+        <div>
+            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+        </div>
+    {% endif %}
     <h1>{{ 'title.category_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
         <table class="table table-striped">

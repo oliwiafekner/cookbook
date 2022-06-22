@@ -30,6 +30,14 @@
         <source>label.none</source>
         <target>None</target>
       </trans-unit>
+      <trans-unit id="label.email">
+        <source>label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="label.password">
+        <source>label.password</source>
+        <target>Password</target>
+      </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>List is empty.</target>
@@ -94,6 +102,14 @@
         <source>title.recipe_delete</source>
         <target>Delete recipe #%id%</target>
       </trans-unit>
+      <trans-unit id="title.login">
+        <source>title.login</source>
+        <target>Log in!</target>
+      </trans-unit>
+      <trans-unit id="title.welcome">
+        <source>title.welcome</source>
+        <target>Welcome</target>
+      </trans-unit>
       <trans-unit id="action.show">
         <source>action.show</source>
         <target>Show</target>
@@ -121,6 +137,14 @@
       <trans-unit id="action.back_to_list">
         <source>action.back_to_list</source>
         <target>Back to list</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="action.logout">
+        <source>action.logout</source>
+        <target>Log out</target>
       </trans-unit>
     </body>
   </file>
