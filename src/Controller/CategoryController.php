@@ -174,7 +174,7 @@ class CategoryController extends AbstractController
         }
 
         $form = $this->createForm(
-            FormType::class,
+            CategoryType::class,
             $category,
             [
                 'method' => 'DELETE',

@@ -33,6 +33,11 @@
                         <a href="{{ url('recipe_show', {id: recipe.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
+                        <a href="{{ url('recipe_edit', {id: recipe.id}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <a href="{{ url('recipe_delete', {id: recipe.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
                     </td>
                 </tr>
             {% endfor %}
@@ -41,6 +46,12 @@
 
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url('recipe_create') }}" title="{{ 'action.create_recipe'|trans }}">
+                {{ 'action.create_recipe'|trans }}
+            </a>
         </div>
 
     {% else %}

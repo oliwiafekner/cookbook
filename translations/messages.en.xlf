@@ -26,6 +26,10 @@
         <source>label.content</source>
         <target>Content</target>
       </trans-unit>
+      <trans-unit id="label.none">
+        <source>label.none</source>
+        <target>None</target>
+      </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>List is empty.</target>
@@ -45,6 +49,10 @@
       <trans-unit id="message.category_contains_recipes">
         <source>message.category_contains_recipes</source>
         <target>Category contains recipes.</target>
+      </trans-unit>
+      <trans-unit id="message.form_error">
+        <source>message.form_error</source>
+        <target>Error.</target>
       </trans-unit>
       <trans-unit id="title.recipe_list">
         <source>title.recipe_list</source>
@@ -66,13 +74,25 @@
         <source>title.category_create</source>
         <target>Create category</target>
       </trans-unit>
+      <trans-unit id="title.recipe_create">
+        <source>title.recipe_create</source>
+        <target>Create recipe</target>
+      </trans-unit>
       <trans-unit id="title.category_edit">
         <source>title.category_edit</source>
         <target>Edit category</target>
       </trans-unit>
+      <trans-unit id="title.recipe_edit">
+        <source>title.recipe_edit</source>
+        <target>Edit recipe</target>
+      </trans-unit>
       <trans-unit id="title.category_delete">
         <source>title.category_delete</source>
         <target>Delete category</target>
+      </trans-unit>
+      <trans-unit id="title.recipe_delete">
+        <source>title.recipe_delete</source>
+        <target>Delete recipe #%id%</target>
       </trans-unit>
       <trans-unit id="action.show">
         <source>action.show</source>
@@ -89,6 +109,10 @@
       <trans-unit id="action.create_category">
         <source>action.create_category</source>
         <target>Create category</target>
+      </trans-unit>
+      <trans-unit id="action.create_recipe">
+        <source>action.create_recipe</source>
+        <target>Create recipe</target>
       </trans-unit>
       <trans-unit id="action.delete">
         <source>action.delete</source>

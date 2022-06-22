@@ -9,6 +9,8 @@ use App\Repository\RecipeRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Recipe.
@@ -17,6 +19,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
 #[ORM\Table(name: 'recipes')]
+#[UniqueEntity(fields: ['title'])]
 class Recipe
 {
     /**
@@ -35,6 +38,9 @@ class Recipe
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 255)]
     private ?string $title = null;
 
     /**
@@ -45,6 +51,7 @@ class Recipe
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
     #[Gedmo\Timestampable(on: 'create')]
     private ?DateTimeImmutable $createdAt;
 
