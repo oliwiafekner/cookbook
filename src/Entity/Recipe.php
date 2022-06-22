@@ -8,6 +8,7 @@ namespace App\Entity;
 use App\Repository\RecipeRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class Recipe.
@@ -44,6 +45,7 @@ class Recipe
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?DateTimeImmutable $createdAt;
 
     /**
