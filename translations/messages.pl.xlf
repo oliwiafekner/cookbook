@@ -38,6 +38,10 @@
         <source>message.deleted_successfully</source>
         <target>Usunięto pomyślnie.</target>
       </trans-unit>
+      <trans-unit id="message.category_contains_recipes">
+        <source>message.category_contains_recipes</source>
+        <target>Kategoria zawiera przepisy.</target>
+      </trans-unit>
       <trans-unit id="title.recipe_list">
         <source>title.recipe_list</source>
         <target>Przepisy</target>

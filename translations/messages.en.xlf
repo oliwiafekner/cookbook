@@ -42,6 +42,10 @@
         <source>message.deleted_successfully</source>
         <target>Deleted successfully.</target>
       </trans-unit>
+      <trans-unit id="message.category_contains_recipes">
+        <source>message.category_contains_recipes</source>
+        <target>Category contains recipes.</target>
+      </trans-unit>
       <trans-unit id="title.recipe_list">
         <source>title.recipe_list</source>
         <target>Recipe list</target>

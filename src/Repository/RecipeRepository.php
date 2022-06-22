@@ -6,6 +6,7 @@
 namespace App\Repository;
 
 use App\Entity\Recipe;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -71,5 +72,26 @@ class RecipeRepository extends ServiceEntityRepository
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('recipe');
+    }
+
+    /**
+     * Count recipes by category.
+     *
+     * @param Category $category Category
+     *
+     * @return int Number of recipes in category
+     *
+     * @throws NoResultException
+     * @throws NonUniqueResultException
+     */
+    public function countByCategory(Category $category): int
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        return $qb->select($qb->expr()->countDistinct('recipe.id'))
+            ->where('recipe.category = :category')
+            ->setParameter(':category', $category)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }
