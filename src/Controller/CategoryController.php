@@ -6,12 +6,12 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Form\Type\CategoryType;
 use App\Service\CategoryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Form\Type\CategoryType;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -27,8 +27,6 @@ class CategoryController extends AbstractController
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -102,16 +100,10 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.success')
+                $this->translator->trans('message.created_successfully')
             );
 
             return $this->redirectToRoute('category_index');
-        }
-        else{
-            $this->addFlash(
-                'danger',
-                $this->translator->trans('message.fail')
-            );
         }
 
         return $this->render(
@@ -131,10 +123,14 @@ class CategoryController extends AbstractController
     #[Route('/{id}/edit', name: 'category_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
     public function edit(Request $request, Category $category): Response
     {
-        $form = $this->createForm(CategoryType::class, $category, [
-            'method' => 'PUT',
-            'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
-        ]);
+        $form = $this->createForm(
+            CategoryType::class,
+            $category,
+            [
+                'method' => 'PUT',
+                'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -142,16 +138,10 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.success')
+                $this->translator->trans('message.edited_successfully')
             );
 
             return $this->redirectToRoute('category_index');
-        }
-        else {
-            $this->addFlash(
-                'danger',
-                $this->translator->trans('message.fail')
-            );
         }
 
         return $this->render(
@@ -185,16 +175,10 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.success')
+                $this->translator->trans('message.deleted_successfully')
             );
 
             return $this->redirectToRoute('category_index');
-        }
-        else {
-            $this->addFlash(
-                'danger',
-                $this->translator->trans('message.fail')
-            );
         }
 
         return $this->render(

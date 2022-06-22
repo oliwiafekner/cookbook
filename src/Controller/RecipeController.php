@@ -42,7 +42,7 @@ class RecipeController extends AbstractController
     public function index(Request $request): Response
     {
         $pagination = $this->recipeService->getPaginatedList(
-            $request->query->getInt('page',1)
+            $request->query->getInt('page', 1)
         );
 
         return $this->render('recipe/index.html.twig', ['pagination' => $pagination]);

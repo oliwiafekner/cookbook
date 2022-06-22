@@ -57,7 +57,7 @@ class RecipeRepository extends ServiceEntityRepository
                 'partial recipe.{id, createdAt, title, content}',
                 'partial category.{id,title}'
             )
-            ->join('recipe.category','category')
+            ->join('recipe.category', 'category')
             ->orderBy('recipe.createdAt', 'DESC');
     }
 
