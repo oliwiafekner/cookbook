@@ -58,6 +58,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password;
 
     /**
+     * Nick.
+     *
+     * @var string|null
+     */
+    #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\NotBlank]
+    private ?string $nick;
+
+    /**
      * Getter for id.
      *
      * @return int|null Id
@@ -177,5 +186,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * Getter for nick.
+     *
+     * @return string|null Nick
+     */
+    public function getNick(): ?string
+    {
+        return $this->nick;
+    }
+
+    /**
+     * Setter for nick.
+     *
+     * @param string $nick Username
+     *
+     * @return $this
+     */
+    public function setNick(string $nick): self
+    {
+        $this->nick = $nick;
+
+        return $this;
     }
 }

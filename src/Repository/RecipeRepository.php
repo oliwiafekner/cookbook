@@ -5,14 +5,13 @@
 
 namespace App\Repository;
 
-use App\Entity\Recipe;
 use App\Entity\Category;
+use App\Entity\Recipe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
-
 
 /**
  * Class RecipeRepository.

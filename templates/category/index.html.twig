@@ -6,12 +6,12 @@
 
 {% block body %}
     {% if app.user %}
-        <div>{{ 'title.welcome'|trans }} <strong>{{ app.user.userIdentifier }}</strong>!</div>
-        <div>
+        <div style="text-align: right">{{ 'title.welcome'|trans }} <strong>{{ app.user.userIdentifier }}</strong>!</div>
+        <div style="text-align: right">
             <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
-        <div>
+        <div style="text-align: right">
             <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
     {% endif %}
@@ -36,12 +36,14 @@
                         <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
-                        <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'action.edit'|trans }}
-                        </a>
-                        <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
-                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
+                                {{ 'action.edit'|trans }}
+                            </a>
+                            <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
@@ -52,11 +54,13 @@
             {{ knp_pagination_render(pagination) }}
         </div>
 
-        <div class="text-center">
-          <a href="{{ url('category_create') }}" title="{{ 'action.create_category'|trans }}">
-              {{ 'action.create_category'|trans }}
-          </a>
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="text-center">
+              <a href="{{ url('category_create') }}" title="{{ 'action.create_category'|trans }}">
+                  {{ 'action.create_category'|trans }}
+              </a>
+            </div>
+        {% endif %}
 
     {% else %}
         <p>

@@ -21,7 +21,7 @@ parameters:
             message: 'message.form_error'|trans,
         }%}
     {% endif %}
-    {{ form_widget(form) }}
+    <div>{{ form_widget(form) }}</div>
     <div class="form-group row float-sm-right">
         <input type="submit" value="{{ submit_label }}" class="btn btn-primary"/>
     </div>

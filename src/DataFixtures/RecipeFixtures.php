@@ -7,6 +7,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Recipe;
+use App\Entity\User;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -41,6 +42,10 @@ class RecipeFixtures extends AbstractBaseFixtures implements DependentFixtureInt
             $category = $this->getRandomReference('categories');
             $recipe->setCategory($category);
 
+            /** @var User $author */
+            $author = $this->getRandomReference('users');
+            $recipe->setAuthor($author);
+
             return $recipe;
         });
 
@@ -53,10 +58,10 @@ class RecipeFixtures extends AbstractBaseFixtures implements DependentFixtureInt
      *
      * @return string[] of dependencies
      *
-     * @psalm-return array{0: CategoryFixtures::class}
+     * @psalm-return array{0: CategoryFixtures::class, 1: UserFixtures::class}
      */
     public function getDependencies(): array
     {
-        return [CategoryFixtures::class];
+        return [CategoryFixtures::class, UserFixtures::class];
     }
 }

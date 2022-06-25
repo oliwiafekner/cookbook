@@ -119,6 +119,9 @@
     "egulias/email-validator": {
         "version": "3.2"
     },
+    "erusev/parsedown": {
+        "version": "1.7.4"
+    },
     "fakerphp/faker": {
         "version": "v1.19.0"
     },

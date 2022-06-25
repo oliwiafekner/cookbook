@@ -80,26 +80,38 @@ class RecipeController extends AbstractController
     #[Route('/create', name: 'recipe_create', methods: 'GET|POST', )]
     public function create(Request $request): Response
     {
-        $recipe = new Recipe();
-        $form = $this->createForm(
-            RecipeType::class,
-            $recipe,
-            ['action' => $this->generateUrl('recipe_create')]
-        );
-        $form->handleRequest($request);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            /** @var User $user */
+            $user = $this->getUser();
+            $recipe = new Recipe();
+            $recipe->setAuthor($user);
+            $form = $this->createForm(
+                RecipeType::class,
+                $recipe,
+                ['action' => $this->generateUrl('recipe_create')]
+            );
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->recipeService->save($recipe);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->recipeService->save($recipe);
 
+                $this->addFlash(
+                    'success',
+                    $this->translator->trans('message.created_successfully')
+                );
+
+                return $this->redirectToRoute('recipe_index');
+            }
+
+            return $this->render('recipe/create.html.twig', ['form' => $form->createView()]);
+        } else {
             $this->addFlash(
-                'success',
-                $this->translator->trans('message.created_successfully')
+                'danger',
+                $this->translator->trans('message.access_denied')
             );
 
             return $this->redirectToRoute('recipe_index');
         }
-
-        return $this->render('recipe/create.html.twig',  ['form' => $form->createView()]);
     }
 
     /**
@@ -113,34 +125,43 @@ class RecipeController extends AbstractController
     #[Route('/{id}/edit', name: 'recipe_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
     public function edit(Request $request, Recipe $recipe): Response
     {
-        $form = $this->createForm(
-            RecipeType::class,
-            $recipe,
-            [
-                'method' => 'PUT',
-                'action' => $this->generateUrl('recipe_edit', ['id' => $recipe->getId()]),
-            ]
-        );
-        $form->handleRequest($request);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(
+                RecipeType::class,
+                $recipe,
+                [
+                    'method' => 'PUT',
+                    'action' => $this->generateUrl('recipe_edit', ['id' => $recipe->getId()]),
+                ]
+            );
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->recipeService->save($recipe);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->recipeService->save($recipe);
 
+                $this->addFlash(
+                    'success',
+                    $this->translator->trans('message.edited_successfully')
+                );
+
+                return $this->redirectToRoute('recipe_index');
+            }
+
+            return $this->render(
+                'recipe/edit.html.twig',
+                [
+                    'form' => $form->createView(),
+                    'recipe' => $recipe,
+                ]
+            );
+        } else {
             $this->addFlash(
-                'success',
-                $this->translator->trans('message.edited_successfully')
+                'danger',
+                $this->translator->trans('message.access_denied')
             );
 
             return $this->redirectToRoute('recipe_index');
         }
-
-        return $this->render(
-            'recipe/edit.html.twig',
-            [
-                'form' => $form->createView(),
-                'recipe' => $recipe,
-            ]
-        );
     }
 
     /**
@@ -154,33 +175,42 @@ class RecipeController extends AbstractController
     #[Route('/{id}/delete', name: 'recipe_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Recipe $recipe): Response
     {
-        $form = $this->createForm(
-            FormType::class,
-            $recipe,
-            [
-                'method' => 'DELETE',
-                'action' => $this->generateUrl('recipe_delete', ['id' => $recipe->getId()]),
-            ]
-        );
-        $form->handleRequest($request);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(
+                FormType::class,
+                $recipe,
+                [
+                    'method' => 'DELETE',
+                    'action' => $this->generateUrl('recipe_delete', ['id' => $recipe->getId()]),
+                ]
+            );
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->recipeService->delete($recipe);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->recipeService->delete($recipe);
 
+                $this->addFlash(
+                    'success',
+                    $this->translator->trans('message.deleted_successfully')
+                );
+
+                return $this->redirectToRoute('recipe_index');
+            }
+
+            return $this->render(
+                'recipe/delete.html.twig',
+                [
+                    'form' => $form->createView(),
+                    'recipe' => $recipe,
+                ]
+            );
+        } else {
             $this->addFlash(
-                'success',
-                $this->translator->trans('message.deleted_successfully')
+                'danger',
+                $this->translator->trans('message.access_denied')
             );
 
             return $this->redirectToRoute('recipe_index');
         }
-
-        return $this->render(
-            'recipe/delete.html.twig',
-            [
-                'form' => $form->createView(),
-                'recipe' => $recipe,
-            ]
-        );
     }
 }

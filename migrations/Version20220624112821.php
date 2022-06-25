@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220622145837 extends AbstractMigration
+final class Version20220624112821 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,14 +20,16 @@ final class Version20220622145837 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE users (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX email_idx (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('DROP INDEX uq_categories_title ON categories');
+        $this->addSql('ALTER TABLE recipes ADD author_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE recipes ADD CONSTRAINT FK_A369E2B5F675F31B FOREIGN KEY (author_id) REFERENCES users (id)');
+        $this->addSql('CREATE INDEX IDX_A369E2B5F675F31B ON recipes (author_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE users');
-        $this->addSql('CREATE UNIQUE INDEX uq_categories_title ON categories (title)');
+        $this->addSql('ALTER TABLE recipes DROP FOREIGN KEY FK_A369E2B5F675F31B');
+        $this->addSql('DROP INDEX IDX_A369E2B5F675F31B ON recipes');
+        $this->addSql('ALTER TABLE recipes DROP author_id');
     }
 }

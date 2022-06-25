@@ -5,8 +5,8 @@
 
 namespace App\Service;
 
-use Knp\Component\Pager\Pagination\PaginationInterface;
 use App\Entity\Recipe;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Interface RecipeServiceInterface.

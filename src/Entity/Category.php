@@ -53,6 +53,7 @@ class Category
 
     /**
      * Slug.
+     *
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 64)]

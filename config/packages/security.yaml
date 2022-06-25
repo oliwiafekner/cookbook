@@ -42,8 +42,6 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/login, roles: PUBLIC_ACCESS}
-        - { path: ^/recipe/create, roles: ROLE_ADMIN}
-        - { path: ^/category/create, roles: ROLE_ADMIN}
         - { path: ^/recipe, roles: PUBLIC_ACCESS}
         - { path: ^/category, roles: PUBLIC_ACCESS}
 
