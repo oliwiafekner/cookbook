@@ -16,6 +16,11 @@ use Knp\Component\Pager\PaginatorInterface;
 class RecipeService implements RecipeServiceInterface
 {
     /**
+     * Category service.
+     */
+    private CategoryServiceInterface $categoryService;
+
+    /**
      * Recipe repository.
      */
     private RecipeRepository $recipeRepository;
@@ -28,11 +33,16 @@ class RecipeService implements RecipeServiceInterface
     /**
      * Constructor.
      *
-     * @param RecipeRepository   $recipeRepository Recipe repository
-     * @param PaginatorInterface $paginator        Paginator
+     * @param CategoryServiceInterface $categoryService  Category service
+     * @param RecipeRepository         $recipeRepository Recipe repository
+     * @param PaginatorInterface       $paginator        Paginator
      */
-    public function __construct(RecipeRepository $recipeRepository, PaginatorInterface $paginator)
-    {
+    public function __construct(
+        CategoryServiceInterface $categoryService,
+        RecipeRepository $recipeRepository,
+        PaginatorInterface $paginator
+    ) {
+        $this->categoryService = $categoryService;
         $this->recipeRepository = $recipeRepository;
         $this->paginator = $paginator;
     }
@@ -40,14 +50,17 @@ class RecipeService implements RecipeServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int                $page    Page number
+     * @param array<string, int> $filters Filters array
      *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface<SlidingPagination> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
+        $filters = $this->prepareFilters($filters);
+
         return $this->paginator->paginate(
-            $this->recipeRepository->queryAll(),
+            $this->recipeRepository->queryAll($filters),
             $page,
             RecipeRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -71,5 +84,25 @@ class RecipeService implements RecipeServiceInterface
     public function delete(Recipe $recipe): void
     {
         $this->recipeRepository->delete($recipe);
+    }
+
+    /**
+     * Prepare filters for the recipes list.
+     *
+     * @param array<string, int> $filters Raw filters from request
+     *
+     * @return array<string, object> Result array of filters
+     */
+    public function prepareFilters(array $filters): array
+    {
+        $resultFilters = [];
+        if (!empty($filters['category_id'])) {
+            $category = $this->categoryService->findOneById($filters['category_id']);
+            if (null !== $category) {
+                $resultFilters['category'] = $category;
+            }
+        }
+
+        return $resultFilters;
     }
 }

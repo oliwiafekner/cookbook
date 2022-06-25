@@ -16,11 +16,12 @@ interface RecipeServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int                $page    Page number
+     * @param array<string, int> $filters Filters array
      *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface<SlidingPagination> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface;
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface;
 
     /**
      * Save entity.
@@ -35,4 +36,13 @@ interface RecipeServiceInterface
      * @param Recipe $recipe Recipe entity
      */
     public function delete(Recipe $recipe): void;
+
+    /**
+     * Prepare filters for the recipes list.
+     *
+     * @param array<string, int> $filters Raw filters from request
+     *
+     * @return array<string, object> Result array of filters
+     */
+    public function prepareFilters(array $filters): array;
 }

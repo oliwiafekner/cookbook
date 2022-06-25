@@ -42,11 +42,16 @@ class RecipeController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route(name: 'recipe_index', methods: 'GET')]
+    #[Route(
+        name: 'recipe_index',
+        methods: 'GET'
+    )]
     public function index(Request $request): Response
     {
+        $filters = $this->getFilters($request);
         $pagination = $this->recipeService->getPaginatedList(
-            $request->query->getInt('page', 1)
+            $request->query->getInt('page', 1),
+            $filters
         );
 
         return $this->render('recipe/index.html.twig', ['pagination' => $pagination]);
@@ -212,5 +217,22 @@ class RecipeController extends AbstractController
 
             return $this->redirectToRoute('recipe_index');
         }
+    }
+
+    /**
+     * Get filters from request.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return array<string, int> Array of filters
+     *
+     * @psalm-return array{category_id: int}
+     */
+    private function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['category_id'] = $request->query->getInt('filters_category_id');
+
+        return $filters;
     }
 }
