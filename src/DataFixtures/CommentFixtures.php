@@ -5,8 +5,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Recipe;
 use App\Entity\Comment;
+use App\Entity\Recipe;
 use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -45,7 +45,6 @@ class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureIn
 
         $this->manager->flush();
     }
-
 
     /**
      * This method must return an array of fixtures classes

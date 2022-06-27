@@ -78,7 +78,8 @@ class Comment
     /**
      * Setter for content.
      *
-     * @param string|null $content
+     * @param  string|null $content
+     *
      * @return $this
      */
     public function setContent(?string $content): self
@@ -101,7 +102,8 @@ class Comment
     /**
      * Setter for author.
      *
-     * @param User|null $author
+     * @param  User|null $author
+     *
      * @return $this
      */
     public function setAuthor(?User $author): self
@@ -124,7 +126,8 @@ class Comment
     /**
      * Setter for recipe.
      *
-     * @param Recipe|null $recipe
+     * @param  Recipe|null $recipe
+     *
      * @return $this
      */
     public function setRecipe(?Recipe $recipe): self

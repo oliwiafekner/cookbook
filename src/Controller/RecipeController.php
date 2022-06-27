@@ -6,9 +6,10 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
+use App\Entity\User;
 use App\Form\Type\RecipeType;
-use App\Service\RecipeServiceInterface;
 use App\Service\CommentServiceInterface;
+use App\Service\RecipeServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,17 +24,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RecipeController extends AbstractController
 {
     /**
-     * Recipe service.
+     * Recipe Service.
+     *
+     * @var RecipeServiceInterface
      */
     private RecipeServiceInterface $recipeService;
 
     /**
-     * Comment service.
-     */
-    private CommentServiceInterface $commentService;
-
-    /**
      * Constructor.
+     *
+     * @param RecipeServiceInterface $recipeService
+     * @param TranslatorInterface    $translator
      */
     public function __construct(RecipeServiceInterface $recipeService, TranslatorInterface $translator)
     {

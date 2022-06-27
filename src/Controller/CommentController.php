@@ -6,14 +6,13 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
-use App\Entity\Recipe;
+use App\Entity\User;
 use App\Form\Type\CommentType;
-use App\Repository\CommentRepository;
 use App\Service\CommentServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -25,11 +24,16 @@ class CommentController extends AbstractController
 {
     /**
      * Comment service.
+     *
+     * @var CommentServiceInterface
      */
     private CommentServiceInterface $commentService;
 
     /**
      * Constructor.
+     *
+     * @param CommentServiceInterface $commentService
+     * @param TranslatorInterface     $translator
      */
     public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator)
     {

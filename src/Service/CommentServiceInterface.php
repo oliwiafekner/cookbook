@@ -6,7 +6,6 @@
 namespace App\Service;
 
 use App\Entity\Comment;
-use App\Entity\Recipe;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
@@ -17,7 +16,7 @@ interface CommentServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int                $page    Page number
      * @param array<string, int> $filters Filters array
      *
      * @return PaginationInterface<SlidingPagination> Paginated list

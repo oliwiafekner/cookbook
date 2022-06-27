@@ -5,7 +5,6 @@
 
 namespace App\Service;
 
-use App\Entity\Recipe;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -38,11 +37,8 @@ class CommentService implements CommentServiceInterface
      * @param CommentRepository      $commentRepository Comment repository
      * @param PaginatorInterface     $paginator         Paginator
      */
-    public function __construct(
-        RecipeServiceInterface $recipeService,
-        CommentRepository $commentRepository,
-        PaginatorInterface $paginator
-    ) {
+    public function __construct(RecipeServiceInterface $recipeService, CommentRepository $commentRepository, PaginatorInterface $paginator)
+    {
         $this->recipeService = $recipeService;
         $this->commentRepository = $commentRepository;
         $this->paginator = $paginator;
@@ -51,7 +47,7 @@ class CommentService implements CommentServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int    $page   Page number
+     * @param int                $page    Page number
      * @param array<string, int> $filters Filters array
      *
      * @return PaginationInterface<SlidingPagination> Paginated list

@@ -37,11 +37,8 @@ class RecipeService implements RecipeServiceInterface
      * @param RecipeRepository         $recipeRepository Recipe repository
      * @param PaginatorInterface       $paginator        Paginator
      */
-    public function __construct(
-        CategoryServiceInterface $categoryService,
-        RecipeRepository $recipeRepository,
-        PaginatorInterface $paginator
-    ) {
+    public function __construct(CategoryServiceInterface $categoryService, RecipeRepository $recipeRepository, PaginatorInterface $paginator)
+    {
         $this->categoryService = $categoryService;
         $this->recipeRepository = $recipeRepository;
         $this->paginator = $paginator;
