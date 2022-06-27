@@ -8,14 +8,22 @@
     {% if app.user %}
         <div style="text-align: right">{{ 'title.welcome'|trans }} <strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}!</a></strong></div>
         <div style="text-align: right">
-            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+            <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
         <div style="text-align: right">{{ 'title.welcome'|trans }}!</div>
         <div style="text-align: right">
-            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+            <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
     {% endif %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url('recipe_index') }}">{{ 'title.recipe_list'|trans }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('category_index') }}">{{ 'title.category_list'|trans }}</a>
+        </li>
+    </ul>
     <h1>{{ 'title.recipe_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
@@ -66,10 +74,11 @@
 
         {% if is_granted('ROLE_ADMIN') %}
             <div class="text-center">
-                <a href="{{ url('recipe_create') }}" title="{{ 'action.create_recipe'|trans }}">
+                <a class="btn btn-outline-warning btn-lg" href="{{ url('recipe_create') }}" title="{{ 'action.create_recipe'|trans }}">
                     {{ 'action.create_recipe'|trans }}
                 </a>
             </div>
+            <p></p>
         {% endif %}
 
     {% else %}

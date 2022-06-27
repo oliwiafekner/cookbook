@@ -8,11 +8,11 @@
     {% if app.user %}
         <div style="text-align: right"><strong>{{ app.user.userIdentifier }}</strong>!</div>
         <div style="text-align: right">
-            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+            <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
         <div style="text-align: right">
-            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+            <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
     {% endif %}
     <h1>{{ 'title.comment_list'|trans }}</h1>
@@ -56,8 +56,8 @@
             {{ knp_pagination_render(pagination) }}
         </div>
 
-        <div>
-            <a href="{{ url('comment_create') }}" title="{{ 'action.create_comment'|trans }}">
+        <div style="text-align: center">
+            <a class="btn btn-outline-success" href="{{ url('comment_create') }}" title="{{ 'action.create_comment'|trans }}">
                 {{ 'action.create_comment'|trans }}
             </a>
         </div>

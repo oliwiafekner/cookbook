@@ -6,13 +6,13 @@
 
 {% block body %}
     {% if app.user %}
-        <div style="text-align: right"><strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}</a></strong>!</div>
+        <div style="text-align: right"><strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}</a></strong></div>
         <div style="text-align: right">
-            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+            <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
         <div style="text-align: right">
-            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+            <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
     {% endif %}
     <h1>{{ 'title.recipe_details'|trans({'%title%': recipe.title|default('')}) }}</h1>

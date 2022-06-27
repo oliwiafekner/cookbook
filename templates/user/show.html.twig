@@ -16,12 +16,13 @@
             <dd>{{  user.email }}</dd>
         </dl>
         <div>
-            <a href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'action.edit_password'|trans }}">
+            <a class="btn btn-info" href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'action.edit_password'|trans }}">
                 {{ 'action.edit_password'|trans }}
             </a>
         </div>
+        <p></p>
         <div>
-            <a href="{{ url('user_data', {id: user.id}) }}" title="{{ 'action.edit_data'|trans }}">
+            <a class="btn btn-info" href="{{ url('user_data', {id: user.id}) }}" title="{{ 'action.edit_data'|trans }}">
                 {{ 'action.edit_data'|trans }}
             </a>
         </div>

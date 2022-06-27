@@ -8,11 +8,11 @@
     {% if app.user %}
         <div style="text-align: right"><strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}</a></strong></div>
         <div style="text-align: right">
-            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+            <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
         <div style="text-align: right">
-            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+            <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
     {% endif %}
     <h1>{{ 'title.category_details'|trans({'%id%': category.id|default('')}) }}</h1>
@@ -23,8 +23,8 @@
             <dt>{{ 'label.title'|trans }}</dt>
             <dd>{{ category.title }}</dd>
         </dl>
-        <p>
-            <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">
+        <p style="text-align: center">
+            <a class="btn btn-outline-primary" href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>
