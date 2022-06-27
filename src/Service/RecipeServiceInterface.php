@@ -45,4 +45,15 @@ interface RecipeServiceInterface
      * @return array<string, object> Result array of filters
      */
     public function prepareFilters(array $filters): array;
+
+    /**
+     * Find by id.
+     *
+     * @param int $id Recipe id
+     *
+     * @return Recipe|null Category entity
+     *
+     * @throws NonUniqueResultException
+     */
+    public function findOneById(int $id): ?Recipe;
 }

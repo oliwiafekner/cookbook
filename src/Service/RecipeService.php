@@ -105,4 +105,18 @@ class RecipeService implements RecipeServiceInterface
 
         return $resultFilters;
     }
+
+    /**
+     * Find by id.
+     *
+     * @param int $id Recipe id
+     *
+     * @return Recipe|null Recipe entity
+     *
+     * @throws NonUniqueResultException
+     */
+    public function findOneById(int $id): ?Recipe
+    {
+        return $this->recipeRepository->findOneById($id);
+    }
 }

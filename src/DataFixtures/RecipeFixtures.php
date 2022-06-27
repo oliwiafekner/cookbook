@@ -6,6 +6,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Recipe;
 use App\Entity\User;
 use DateTimeImmutable;
@@ -37,7 +38,8 @@ class RecipeFixtures extends AbstractBaseFixtures implements DependentFixtureInt
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
-            $recipe->setContent($this->faker->text);
+            $recipe->setContent($this->faker->text(200));
+
             /** @var Category $category */
             $category = $this->getRandomReference('categories');
             $recipe->setCategory($category);

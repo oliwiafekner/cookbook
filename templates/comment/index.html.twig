@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.comment_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <div style="text-align: right"><strong>{{ app.user.userIdentifier }}</strong>!</div>
+        <div style="text-align: right">
+            <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+        </div>
+    {% else %}
+        <div style="text-align: right">
+            <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+        </div>
+    {% endif %}
+    <h1>{{ 'title.comment_list'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <th>{{ 'label.author'|trans }}</th>
+                <th>{{ 'label.content'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.recipe'|trans, 'recipe.title') }}</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>{{ 'label.actions'|trans }}</th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for comment in pagination.items %}
+                <tr>
+                    <th scope="row">{{ comment.id }}</th>
+                    <td>{{ comment.author.nick }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>
+                        <a href="{{ url('comment_index', {'filters.recipe_id' : comment.recipe.id}) }}" title="{{ comment.recipe.title }}">
+                            {{ comment.recipe.title }}
+                        </a>
+                    </td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>
+                            <a class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <div>
+            <a href="{{ url('comment_create') }}" title="{{ 'action.create_comment'|trans }}">
+                {{ 'action.create_comment'|trans }}
+            </a>
+        </div>
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

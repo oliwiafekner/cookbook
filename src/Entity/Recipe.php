@@ -7,6 +7,8 @@ namespace App\Entity;
 
 use App\Repository\RecipeRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -84,6 +86,17 @@ class Recipe
     #[Assert\NotBlank]
     #[Assert\Type(User::class)]
     private ?User $author;
+
+    public function __construct()
+    {
+        $this->comment = new ArrayCollection();
+    }
+
+    /**
+     * Comment.
+     */
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class)]
+    private $comment;
 
     /**
      * Getter for Id.
@@ -175,14 +188,62 @@ class Recipe
         return $this;
     }
 
+    /**
+     * Getter for author.
+     */
     public function getAuthor(): ?User
     {
         return $this->author;
     }
 
+    /**
+     * Setter for author.
+     *
+     * @return $this
+     */
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Getter for comment.
+     *
+     * @return Collection<int, Comment>
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param Comment $comment
+     * @return $this
+     */
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Comment $comment
+     * @return $this
+     */
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getRecipe() === $this) {
+                $comment->setRecipe(null);
+            }
+        }
 
         return $this;
     }

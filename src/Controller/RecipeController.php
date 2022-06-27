@@ -8,6 +8,7 @@ namespace App\Controller;
 use App\Entity\Recipe;
 use App\Form\Type\RecipeType;
 use App\Service\RecipeServiceInterface;
+use App\Service\CommentServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,11 @@ class RecipeController extends AbstractController
      * Recipe service.
      */
     private RecipeServiceInterface $recipeService;
+
+    /**
+     * Comment service.
+     */
+    private CommentServiceInterface $commentService;
 
     /**
      * Constructor.
@@ -82,7 +88,7 @@ class RecipeController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'recipe_create', methods: 'GET|POST', )]
+    #[Route('/create', name: 'recipe_create', methods: 'GET|POST')]
     public function create(Request $request): Response
     {
         if ($this->isGranted('ROLE_ADMIN')) {
