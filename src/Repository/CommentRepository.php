@@ -49,21 +49,34 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @param array<string, object> $filters Filters
-     *
-     * @return QueryBuilder Query builder
+     * @return QueryBuilder
      */
-    public function queryAll(array $filters): QueryBuilder
+    public function queryAll(): QueryBuilder
     {
-        $queryBuilder = $this->getOrCreateQueryBuilder()
+        return $this->getOrCreateQueryBuilder()
             ->select(
                 'partial comment.{id, content}',
                 'partial recipe.{id,title}'
             )
             ->join('comment.recipe', 'recipe')
             ->orderBy('comment.recipe', 'ASC');
+    }
 
-        return $this->applyFiltersToList($queryBuilder, $filters);
+    /**
+     * Query comments by recipe.
+     *
+     * @param Recipe $recipe Recipe entity
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryByRecipe(Recipe $recipe): QueryBuilder
+    {
+        $queryBuilder = $this->queryAll();
+
+        $queryBuilder->andWhere('comment.recipe = :recipe')
+            ->setParameter('recipe', $recipe);
+
+        return $queryBuilder;
     }
 
     /**
@@ -98,23 +111,5 @@ class CommentRepository extends ServiceEntityRepository
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('comment');
-    }
-
-    /**
-     * Apply filters to paginated list.
-     *
-     * @param QueryBuilder          $queryBuilder Query builder
-     * @param array<string, object> $filters      Filters array
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
-    {
-        if (isset($filters['recipe']) && $filters['recipe'] instanceof Recipe) {
-            $queryBuilder->andWhere('recipe = :recipe')
-                ->setParameter('recipe', $filters['recipe']);
-        }
-
-        return $queryBuilder;
     }
 }

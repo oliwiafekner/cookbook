@@ -44,7 +44,7 @@ class RecipeFixtures extends AbstractBaseFixtures implements DependentFixtureInt
             $recipe->setCategory($category);
 
             /** @var User $author */
-            $author = $this->getRandomReference('users');
+            $author = $this->getRandomReference('admins');
             $recipe->setAuthor($author);
 
             return $recipe;

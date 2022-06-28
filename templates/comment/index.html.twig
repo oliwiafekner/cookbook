@@ -11,6 +11,7 @@
             <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
+        <p></p>
         <div style="text-align: right">
             <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
@@ -23,7 +24,6 @@
                 <th>{{ 'label.id'|trans }}</th>
                 <th>{{ 'label.author'|trans }}</th>
                 <th>{{ 'label.content'|trans }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.recipe'|trans, 'recipe.title') }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>{{ 'label.actions'|trans }}</th>
                 {% endif %}
@@ -35,11 +35,6 @@
                     <th scope="row">{{ comment.id }}</th>
                     <td>{{ comment.author.nick }}</td>
                     <td>{{ comment.content }}</td>
-                    <td>
-                        <a href="{{ url('comment_index', {'filters.recipe_id' : comment.recipe.id}) }}" title="{{ comment.recipe.title }}">
-                            {{ comment.recipe.title }}
-                        </a>
-                    </td>
                     {% if is_granted('ROLE_ADMIN') %}
                         <td>
                             <a class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">

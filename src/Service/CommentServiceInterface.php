@@ -6,6 +6,7 @@
 namespace App\Service;
 
 use App\Entity\Comment;
+use App\Entity\Recipe;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
@@ -16,12 +17,12 @@ interface CommentServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
-     * @param array<string, int> $filters Filters array
+     * @param int    $page   Page number
+     * @param Recipe $recipe Recipe
      *
-     * @return PaginationInterface<SlidingPagination> Paginated list
+     * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page, array $filters = []): PaginationInterface;
+    public function getPaginatedList(int $page, Recipe $recipe): PaginationInterface;
 
     /**
      * Save entity.
@@ -36,13 +37,4 @@ interface CommentServiceInterface
      * @param Comment $comment Comment entity
      */
     public function delete(Comment $comment): void;
-
-    /**
-     * Prepare filters for the comments list.
-     *
-     * @param array<string, int> $filters Raw filters from request
-     *
-     * @return array<string, object> Result array of filters
-     */
-    public function prepareFilters(array $filters): array;
 }

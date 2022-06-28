@@ -74,6 +74,10 @@
         <source>message.access_denied</source>
         <target>Brak dostępu.</target>
       </trans-unit>
+      <trans-unit id="message.record_not_found">
+        <source>message.record_not_found</source>
+        <target>Nie znaleziono rekordu.</target>
+      </trans-unit>
       <trans-unit id="title.recipe_list">
         <source>title.recipe_list</source>
         <target>Przepisy</target>

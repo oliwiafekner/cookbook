@@ -6,6 +6,7 @@
 namespace App\Service;
 
 use App\Entity\Comment;
+use App\Entity\Recipe;
 use App\Repository\CommentRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -47,17 +48,15 @@ class CommentService implements CommentServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
-     * @param array<string, int> $filters Filters array
+     * @param int    $page   Page number
+     * @param Recipe $recipe Recipe
      *
-     * @return PaginationInterface<SlidingPagination> Paginated list
+     * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
+    public function getPaginatedList(int $page, Recipe $recipe): PaginationInterface
     {
-        $filters = $this->prepareFilters($filters);
-
         return $this->paginator->paginate(
-            $this->commentRepository->queryAll($filters),
+            $this->commentRepository->queryByRecipe($recipe),
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -81,25 +80,5 @@ class CommentService implements CommentServiceInterface
     public function delete(Comment $comment): void
     {
         $this->commentRepository->delete($comment);
-    }
-
-    /**
-     * Prepare filters for the comments list.
-     *
-     * @param array<string, int> $filters Raw filters from request
-     *
-     * @return array<string, object> Result array of filters
-     */
-    public function prepareFilters(array $filters): array
-    {
-        $resultFilters = [];
-        if (!empty($filters['recipe_id'])) {
-            $recipe = $this->recipeService->findOneById($filters['recipe_id']);
-            if (null !== $recipe) {
-                $resultFilters['recipe'] = $recipe;
-            }
-        }
-
-        return $resultFilters;
     }
 }

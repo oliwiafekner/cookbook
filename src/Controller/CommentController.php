@@ -50,14 +50,13 @@ class CommentController extends AbstractController
      */
     #[Route(
         name: 'comment_index',
+        requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
     public function index(Request $request): Response
     {
-        $filters = $this->getFilters($request);
         $pagination = $this->commentService->getPaginatedList(
             $request->query->getInt('page', 1),
-            $filters,
         );
 
         return $this->render('comment/index.html.twig', ['pagination' => $pagination]);
@@ -147,22 +146,5 @@ class CommentController extends AbstractController
 
             return $this->redirectToRoute('comment_index');
         }
-    }
-
-    /**
-     * Get filters from request.
-     *
-     * @param Request $request HTTP request
-     *
-     * @return array<string, int> Array of filters
-     *
-     * @psalm-return array{recipe_id: int}
-     */
-    private function getFilters(Request $request): array
-    {
-        $filters = [];
-        $filters['recipe_id'] = $request->query->getInt('filters_recipe_id');
-
-        return $filters;
     }
 }

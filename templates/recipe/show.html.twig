@@ -11,6 +11,7 @@
             <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
+        <p></p>
         <div style="text-align: right">
             <a class="btn btn-dark" href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
         </div>
@@ -28,7 +29,7 @@
             <dd>{{ recipe.content }}</dd>
             <dt>{{ 'title.comment_list'|trans }}</dt>
             <dd>
-                <a href="{{ url('comment_index') }}" title="{{ 'action.show'|trans }}">
+                <a href="{{ url('comment_index', {id: recipe.id}) }}" title="{{ 'action.show'|trans }}">
                     {{ 'action.show'|trans }}
                 </a>
             </dd>

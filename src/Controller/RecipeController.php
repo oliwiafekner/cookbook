@@ -24,7 +24,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RecipeController extends AbstractController
 {
     /**
-     * Recipe Service.
+     * Recipe service.
      *
      * @var RecipeServiceInterface
      */
