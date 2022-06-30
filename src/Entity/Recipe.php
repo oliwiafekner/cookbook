@@ -80,6 +80,10 @@ class Recipe
     /**
      * Author.
      *
+     * @ORM\ManyToOne(
+     *     fetch="EXTRA_LAZY"
+     * )
+     *
      * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
@@ -98,6 +102,10 @@ class Recipe
 
     /**
      * Comment.
+     *
+     * @ORM\OneToMany(
+     *     fetch="EXTRA_LAZY"
+     * )
      */
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class)]
     private $comment;

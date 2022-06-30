@@ -59,7 +59,7 @@ class CommentRepository extends ServiceEntityRepository
             ->join('comment.recipe', 'recipe')
             ->andWhere('comment.recipe = :recipe')
             ->setParameter('recipe', $recipe)
-            ->orderBy('comment.recipe', 'ASC');
+            ->orderBy('comment.id', 'ASC');
     }
 
     /**
