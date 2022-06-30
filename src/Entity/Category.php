@@ -125,6 +125,8 @@ class Category
     /**
      * Setter for slug.
      *
+     * @param string $slug
+     *
      * @return $this
      */
     public function setSlug(string $slug): self

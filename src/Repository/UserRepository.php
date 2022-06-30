@@ -51,6 +51,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Remove.
+     *
+     * @param User $entity
+     * @param bool $flush
+     *
+     * @return void
      */
     public function remove(User $entity, bool $flush = false): void
     {

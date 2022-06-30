@@ -129,6 +129,8 @@ class Comment
     /**
      * Setter for recipe.
      *
+     * @param Recipe|null $recipe
+     *
      * @return $this
      */
     public function setRecipe(?Recipe $recipe): self

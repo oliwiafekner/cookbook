@@ -32,7 +32,7 @@ class CommentController extends AbstractController
      * Constructor.
      *
      * @param CommentServiceInterface $commentService
-     * @param TranslatorInterface $translator
+     * @param TranslatorInterface     $translator
      */
     public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -43,9 +43,10 @@ class CommentController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request HTTP Request
+     * @param Request $request
+     * @param Recipe  $recipe
      *
-     * @return Response HTTP response
+     * @return Response
      */
     #[Route(
         '/{id}',
@@ -66,9 +67,10 @@ class CommentController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request HTTP request
+     * @param Request $request
+     * @param Recipe  $recipe
      *
-     * @return Response HTTP response
+     * @return Response
      */
     #[Route('/{id}/create', name: 'comment_create', requirements: ['id' => '[1-9]\d*'], methods: 'GET|POST')]
     public function create(Request $request, Recipe $recipe): Response

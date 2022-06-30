@@ -44,6 +44,7 @@ class CategoryType extends AbstractType
      * Configures the options for this type.
      *
      * @param OptionsResolver $resolver
+     *
      * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -56,6 +57,8 @@ class CategoryType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string
      */
     public function getBlockPrefix(): string
     {
