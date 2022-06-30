@@ -67,14 +67,10 @@ class CommentController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/create', requirements: ['id' => '[1-9]\d*'], name: 'comment_create', methods: 'GET|POST')]
+    #[Route('/{id}/create', name: 'comment_create', requirements: ['id' => '[1-9]\d*'], methods: 'GET|POST')]
     public function create(Request $request, Recipe $recipe): Response
     {
-        /** @var User $user */
-        $user = $this->getUser();
-
         $comment = new Comment();
-        $comment->setAuthor($user);
         $comment->setRecipe($recipe);
         $form = $this->createForm(
             CommentType::class,

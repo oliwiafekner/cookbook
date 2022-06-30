@@ -63,6 +63,7 @@ class Recipe
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 16777215)]
+    #[Assert\NotBlank]
     private ?string $content = null;
 
     /**
