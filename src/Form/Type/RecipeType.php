@@ -53,6 +53,16 @@ class RecipeType extends AbstractType
                 'required' => true,
             ]
         );
+
+        $builder->add(
+            'content',
+            TextType::class,
+            [
+                'label' => 'label.content',
+                'required' => true,
+                'attr' => ['max_length' => 500],
+            ]
+        );
     }
 
     /**

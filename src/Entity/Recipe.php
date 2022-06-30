@@ -173,8 +173,6 @@ class Recipe
 
     /**
      * Getter for category.
-     *
-     * @return Category|null
      */
     public function getCategory(): ?Category
     {
@@ -183,8 +181,6 @@ class Recipe
 
     /**
      * Setter for category.
-     *
-     * @param  Category|null $category
      *
      * @return $this
      */
@@ -197,8 +193,6 @@ class Recipe
 
     /**
      * Getter for author.
-     *
-     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -207,8 +201,6 @@ class Recipe
 
     /**
      * Setter for author.
-     *
-     * @param  User|null $author
      *
      * @return $this
      */
@@ -221,8 +213,6 @@ class Recipe
 
     /**
      * Getter for comment.
-     *
-     * @return Collection
      */
     public function getComment(): Collection
     {
@@ -231,8 +221,6 @@ class Recipe
 
     /**
      * Add comment.
-     *
-     * @param  Comment $comment
      *
      * @return $this
      */
@@ -248,8 +236,6 @@ class Recipe
 
     /**
      * Remove comment.
-     *
-     * @param  Comment $comment
      *
      * @return $this
      */

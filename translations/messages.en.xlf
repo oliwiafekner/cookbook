@@ -188,7 +188,7 @@
       </trans-unit>
       <trans-unit id="action.create_comment">
         <source>action.create_comment</source>
-        <target>Add comment</target>
+        <target>Add</target>
       </trans-unit>
       <trans-unit id="action.delete">
         <source>action.delete</source>

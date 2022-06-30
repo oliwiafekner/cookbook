@@ -22,7 +22,6 @@
             <thead>
             <tr>
                 <th>{{ 'label.id'|trans }}</th>
-                <th>{{ 'label.author'|trans }}</th>
                 <th>{{ 'label.content'|trans }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>{{ 'label.actions'|trans }}</th>
@@ -33,7 +32,6 @@
             {% for comment in pagination.items %}
                 <tr>
                     <th scope="row">{{ comment.id }}</th>
-                    <td>{{ comment.author.nick }}</td>
                     <td>{{ comment.content }}</td>
                     {% if is_granted('ROLE_ADMIN') %}
                         <td>
@@ -49,12 +47,6 @@
 
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
-        </div>
-
-        <div style="text-align: center">
-            <a class="btn btn-outline-success" href="{{ url('comment_create') }}" title="{{ 'action.create_comment'|trans }}">
-                {{ 'action.create_comment'|trans }}
-            </a>
         </div>
 
     {% else %}

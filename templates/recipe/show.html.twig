@@ -29,8 +29,11 @@
             <dd>{{ recipe.content }}</dd>
             <dt>{{ 'title.comment_list'|trans }}</dt>
             <dd>
-                <a href="{{ url('comment_index', {id: recipe.id}) }}" title="{{ 'action.show'|trans }}">
+                <a style="text-decoration: none" href="{{ url('comment_index', {id: recipe.id}) }}" title="{{ 'action.show'|trans }}">
                     {{ 'action.show'|trans }}
+                </a><br>
+                <a style="color: green; text-decoration: none" href="{{ url('comment_create', {id: recipe.id}) }}" title="{{ 'action.create_comment'|trans }}">
+                    {{ 'action.create_comment'|trans }}
                 </a>
             </dd>
         </dl>

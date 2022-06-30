@@ -56,7 +56,7 @@ class CommentService implements CommentServiceInterface
     public function getPaginatedList(int $page, Recipe $recipe): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->commentRepository->queryByRecipe($recipe),
+            $this->commentRepository->queryAll($recipe),
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );

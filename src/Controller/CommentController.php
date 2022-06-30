@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Recipe;
 use App\Entity\User;
 use App\Form\Type\CommentType;
 use App\Service\CommentServiceInterface;
@@ -24,16 +25,11 @@ class CommentController extends AbstractController
 {
     /**
      * Comment service.
-     *
-     * @var CommentServiceInterface
      */
     private CommentServiceInterface $commentService;
 
     /**
      * Constructor.
-     *
-     * @param CommentServiceInterface $commentService
-     * @param TranslatorInterface     $translator
      */
     public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -49,14 +45,16 @@ class CommentController extends AbstractController
      * @return Response HTTP response
      */
     #[Route(
+        '/{id}',
         name: 'comment_index',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    public function index(Request $request): Response
+    public function index(Request $request, Recipe $recipe): Response
     {
         $pagination = $this->commentService->getPaginatedList(
             $request->query->getInt('page', 1),
+            $recipe
         );
 
         return $this->render('comment/index.html.twig', ['pagination' => $pagination]);
@@ -69,18 +67,19 @@ class CommentController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'comment_create', methods: 'GET|POST')]
-    public function create(Request $request): Response
+    #[Route('/{id}/create', requirements: ['id' => '[1-9]\d*'], name: 'comment_create', methods: 'GET|POST')]
+    public function create(Request $request, Recipe $recipe): Response
     {
         /** @var User $user */
         $user = $this->getUser();
 
         $comment = new Comment();
         $comment->setAuthor($user);
+        $comment->setRecipe($recipe);
         $form = $this->createForm(
             CommentType::class,
             $comment,
-            ['action' => $this->generateUrl('comment_create')]
+            ['action' => $this->generateUrl('comment_create', ['id' => $recipe->getId()])]
         );
         $form->handleRequest($request);
 
@@ -92,7 +91,7 @@ class CommentController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('recipe_index');
+            return $this->redirectToRoute('comment_index', ['id' => $recipe->getId()]);
         }
 
         return $this->render('comment/create.html.twig', ['form' => $form->createView()]);
@@ -128,7 +127,7 @@ class CommentController extends AbstractController
                     $this->translator->trans('message.deleted_successfully')
                 );
 
-                return $this->redirectToRoute('comment_index');
+                return $this->redirectToRoute('comment_index', ['id' => $comment->getId()]);
             }
 
             return $this->render(
@@ -144,7 +143,7 @@ class CommentController extends AbstractController
                 $this->translator->trans('message.access_denied')
             );
 
-            return $this->redirectToRoute('comment_index');
+            return $this->redirectToRoute('comment_index', ['id' => $comment->getId()]);
         }
     }
 }

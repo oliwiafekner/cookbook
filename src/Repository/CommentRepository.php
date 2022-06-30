@@ -48,10 +48,8 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * Query all records.
-     *
-     * @return QueryBuilder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(Recipe $recipe): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
@@ -59,6 +57,8 @@ class CommentRepository extends ServiceEntityRepository
                 'partial recipe.{id,title}'
             )
             ->join('comment.recipe', 'recipe')
+            ->andWhere('comment.recipe = :recipe')
+            ->setParameter('recipe', $recipe)
             ->orderBy('comment.recipe', 'ASC');
     }
 
