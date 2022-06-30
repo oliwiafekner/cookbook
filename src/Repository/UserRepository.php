@@ -24,6 +24,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 {
     /**
      * Constructor.
+     *
+     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -32,6 +34,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Add.
+     *
+     * @param User $entity
+     * @param bool $flush
+     *
+     * @return void
      */
     public function add(User $entity, bool $flush = false): void
     {

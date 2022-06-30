@@ -60,6 +60,8 @@ class Comment
 
     /**
      * Getter for id.
+     *
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -68,6 +70,8 @@ class Comment
 
     /**
      * Getter for content.
+     *
+     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -76,6 +80,8 @@ class Comment
 
     /**
      * Setter for content.
+     *
+     * @param string|null $content
      *
      * @return $this
      */
@@ -88,6 +94,8 @@ class Comment
 
     /**
      * Getter for author.
+     *
+     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -96,6 +104,8 @@ class Comment
 
     /**
      * Setter for author.
+     *
+     * @param User|null $author
      *
      * @return $this
      */
@@ -108,6 +118,8 @@ class Comment
 
     /**
      * Getter for recipe.
+     *
+     * @return Recipe|null
      */
     public function getRecipe(): ?Recipe
     {

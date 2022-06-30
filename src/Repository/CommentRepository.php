@@ -48,6 +48,10 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * Query all records.
+     *
+     * @param Recipe $recipe
+     *
+     * @return QueryBuilder
      */
     public function queryAll(Recipe $recipe): QueryBuilder
     {

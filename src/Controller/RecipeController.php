@@ -29,6 +29,9 @@ class RecipeController extends AbstractController
 
     /**
      * Constructor.
+     *
+     * @param RecipeServiceInterface $recipeService
+     * @param TranslatorInterface    $translator
      */
     public function __construct(RecipeServiceInterface $recipeService, TranslatorInterface $translator)
     {

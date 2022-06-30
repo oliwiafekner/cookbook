@@ -21,6 +21,11 @@ class CategoryType extends AbstractType
      *
      * This method is called for each type in the hierarchy starting from the
      * top most type. Type extensions can further modify the form.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -37,6 +42,9 @@ class CategoryType extends AbstractType
 
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

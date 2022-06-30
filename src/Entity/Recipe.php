@@ -106,6 +106,8 @@ class Recipe
      * @ORM\OneToMany(
      *     fetch="EXTRA_LAZY"
      * )
+     *
+     * @var ArrayCollection
      */
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class)]
     private $comment;
@@ -173,7 +175,9 @@ class Recipe
     /**
      * Setter for content.
      *
-     * @param string|null $content Content
+     * @param string|null $content
+     *
+     * @return void
      */
     public function setContent(?string $content): void
     {
@@ -190,6 +194,8 @@ class Recipe
 
     /**
      * Setter for category.
+     *
+     * @param Category|null $category
      *
      * @return $this
      */
@@ -211,6 +217,7 @@ class Recipe
     /**
      * Setter for author.
      *
+     * @param User|null $author
      * @return $this
      */
     public function setAuthor(?User $author): self
@@ -230,6 +237,8 @@ class Recipe
 
     /**
      * Add comment.
+     *
+     * @param Comment $comment
      *
      * @return $this
      */
