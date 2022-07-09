@@ -103,7 +103,7 @@ class Comment
     }
 
     /**
-     * Setter for author.
+     * Setter fot author.
      *
      * @param User|null $author
      *

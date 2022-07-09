@@ -92,6 +92,7 @@ class RecipeController extends AbstractController
         if ($this->isGranted('ROLE_ADMIN')) {
             /** @var User $user */
             $user = $this->getUser();
+
             $recipe = new Recipe();
             $recipe->setAuthor($user);
             $form = $this->createForm(

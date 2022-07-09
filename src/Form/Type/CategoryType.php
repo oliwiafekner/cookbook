@@ -41,6 +41,7 @@ class CategoryType extends AbstractType
     }
 
     /**
+     *
      * Configures the options for this type.
      *
      * @param OptionsResolver $resolver

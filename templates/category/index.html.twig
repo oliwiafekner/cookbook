@@ -6,7 +6,7 @@
 
 {% block body %}
     {% if app.user %}
-        <div style="text-align: right">{{ 'title.welcome'|trans }} <strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}!</a></strong>!</div>
+        <div style="text-align: right">{{ 'title.welcome'|trans }} <strong><a href="{{ url('user_show', {id: app.user.id}) }}">{{ app.user.userIdentifier }}</a></strong>!</div>
         <div style="text-align: right">
             <a class="btn btn-secondary" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>

@@ -378,7 +378,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetAuthor\u0028\u0029",
             "name": "setAuthor",
-            "summary": "Setter\u0020for\u0020author.",
+            "summary": "Setter\u0020fot\u0020author.",
             "url": "classes/App-Entity-Comment.html#method_setAuthor"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetRecipe\u0028\u0029",
@@ -733,7 +733,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
-            "summary": "",
+            "summary": "Class\u0020Kernel.",
             "url": "classes/App-Kernel.html"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository",
