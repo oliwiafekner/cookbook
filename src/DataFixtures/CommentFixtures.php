@@ -30,7 +30,10 @@ class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureIn
 
         $this->createMany(10, 'comments', function (int $i) {
             $comment = new Comment();
+
             $comment->setContent($this->faker->text);
+            $comment->setNick($this->faker->unique()->word);
+            $comment->setEmail(sprintf('user%d@example.com', $i));
 
             /** @var Recipe $recipe */
             $recipe = $this->getRandomReference('recipes');

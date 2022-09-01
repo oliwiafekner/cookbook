@@ -57,7 +57,7 @@ class CommentRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
-                'partial comment.{id, content}',
+                'partial comment.{id, nick, email, content}',
                 'partial recipe.{id,title}'
             )
             ->join('comment.recipe', 'recipe')

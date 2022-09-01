@@ -29,6 +29,24 @@ class Comment
     private ?int $id = null;
 
     /**
+     * Nick.
+     *
+     * @var string|null
+     */
+    #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\NotBlank]
+    private ?string $nick = null;
+
+    /**
+     * Email.
+     *
+     * @var string|null
+     */
+    #[ORM\Column(type: 'string', length: 180)]
+    #[Assert\NotBlank]
+    private ?string $email = null;
+
+    /**
      * Content.
      *
      * @var string|null
@@ -92,6 +110,54 @@ class Comment
     public function setRecipe(?Recipe $recipe): self
     {
         $this->recipe = $recipe;
+
+        return $this;
+    }
+
+    /**
+     * Getter for nick.
+     *
+     * @return string|null
+     */
+    public function getNick(): ?string
+    {
+        return $this->nick;
+    }
+
+    /**
+     * Setter for nick.
+     *
+     * @param string $nick
+     *
+     * @return $this
+     */
+    public function setNick(string $nick): self
+    {
+        $this->nick = $nick;
+
+        return $this;
+    }
+
+    /**
+     * Getter for email.
+     *
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Setter for email.
+     *
+     * @param string $email
+     *
+     * @return $this
+     */
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

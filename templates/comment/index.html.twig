@@ -22,6 +22,8 @@
             <thead>
             <tr>
                 <th>{{ 'label.id'|trans }}</th>
+                <th>{{ 'label.nick'|trans }}</th>
+                <th>{{ 'label.email'|trans }}</th>
                 <th>{{ 'label.content'|trans }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>{{ 'label.actions'|trans }}</th>
@@ -32,6 +34,8 @@
             {% for comment in pagination.items %}
                 <tr>
                     <th scope="row">{{ comment.id }}</th>
+                    <td>{{ comment.nick }}</td>
+                    <td>{{ comment.email }}</td>
                     <td>{{ comment.content }}</td>
                     {% if is_granted('ROLE_ADMIN') %}
                         <td>
