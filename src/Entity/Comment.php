@@ -38,16 +38,6 @@ class Comment
     private ?string $content = null;
 
     /**
-     * Author.
-     *
-     * @ORM\ManyToOne(
-     *     fetch="EXTRA_LAZY"
-     * )
-     */
-    #[ORM\ManyToOne(targetEntity: User::class)]
-    private ?User $author = null;
-
-    /**
      * Recipe.
      *
      * @ORM\ManyToOne(
@@ -60,8 +50,6 @@ class Comment
 
     /**
      * Getter for id.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -70,8 +58,6 @@ class Comment
 
     /**
      * Getter for content.
-     *
-     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -80,8 +66,6 @@ class Comment
 
     /**
      * Setter for content.
-     *
-     * @param string|null $content
      *
      * @return $this
      */
@@ -93,33 +77,7 @@ class Comment
     }
 
     /**
-     * Getter for author.
-     *
-     * @return User|null
-     */
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
-    /**
-     * Setter fot author.
-     *
-     * @param User|null $author
-     *
-     * @return $this
-     */
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
      * Getter for recipe.
-     *
-     * @return Recipe|null
      */
     public function getRecipe(): ?Recipe
     {
@@ -128,8 +86,6 @@ class Comment
 
     /**
      * Setter for recipe.
-     *
-     * @param Recipe|null $recipe
      *
      * @return $this
      */

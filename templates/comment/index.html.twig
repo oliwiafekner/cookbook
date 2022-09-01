@@ -23,7 +23,6 @@
             <tr>
                 <th>{{ 'label.id'|trans }}</th>
                 <th>{{ 'label.content'|trans }}</th>
-                <th>{{ 'label.author'|trans }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>{{ 'label.actions'|trans }}</th>
                 {% endif %}
@@ -33,7 +32,6 @@
             {% for comment in pagination.items %}
                 <tr>
                     <th scope="row">{{ comment.id }}</th>
-                    <td>{{ comment.author.nick }}</td>
                     <td>{{ comment.content }}</td>
                     {% if is_granted('ROLE_ADMIN') %}
                         <td>

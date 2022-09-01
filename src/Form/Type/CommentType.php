@@ -32,20 +32,6 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'recipe',
-            EntityType::class,
-            [
-                'class' => Recipe::class,
-                'choice_label' => function ($recipe): string {
-                    return $recipe->getTitle();
-                },
-                'label' => 'label.recipe',
-                'placeholder' => 'label.none',
-                'required' => true,
-            ]
-        );
-
-        $builder->add(
             'content',
             TextType::class,
             [
