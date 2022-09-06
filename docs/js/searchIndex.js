@@ -371,16 +371,6 @@ Search.appendIndex(
             "summary": "Setter\u0020for\u0020content.",
             "url": "classes/App-Entity-Comment.html#method_setContent"
         },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetAuthor\u0028\u0029",
-            "name": "getAuthor",
-            "summary": "Getter\u0020for\u0020author.",
-            "url": "classes/App-Entity-Comment.html#method_getAuthor"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetAuthor\u0028\u0029",
-            "name": "setAuthor",
-            "summary": "Setter\u0020fot\u0020author.",
-            "url": "classes/App-Entity-Comment.html#method_setAuthor"
-        },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetRecipe\u0028\u0029",
             "name": "getRecipe",
             "summary": "Getter\u0020for\u0020recipe.",
@@ -391,20 +381,45 @@ Search.appendIndex(
             "summary": "Setter\u0020for\u0020recipe.",
             "url": "classes/App-Entity-Comment.html#method_setRecipe"
         },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetNick\u0028\u0029",
+            "name": "getNick",
+            "summary": "Getter\u0020for\u0020nick.",
+            "url": "classes/App-Entity-Comment.html#method_getNick"
+        },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetNick\u0028\u0029",
+            "name": "setNick",
+            "summary": "Setter\u0020for\u0020nick.",
+            "url": "classes/App-Entity-Comment.html#method_setNick"
+        },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetEmail\u0028\u0029",
+            "name": "getEmail",
+            "summary": "Getter\u0020for\u0020email.",
+            "url": "classes/App-Entity-Comment.html#method_getEmail"
+        },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetEmail\u0028\u0029",
+            "name": "setEmail",
+            "summary": "Setter\u0020for\u0020email.",
+            "url": "classes/App-Entity-Comment.html#method_setEmail"
+        },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024id",
             "name": "id",
             "summary": "Primary\u0020key.",
             "url": "classes/App-Entity-Comment.html#property_id"
         },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024nick",
+            "name": "nick",
+            "summary": "Nick.",
+            "url": "classes/App-Entity-Comment.html#property_nick"
+        },                {
+            "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024email",
+            "name": "email",
+            "summary": "Email.",
+            "url": "classes/App-Entity-Comment.html#property_email"
+        },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024content",
             "name": "content",
             "summary": "Content.",
             "url": "classes/App-Entity-Comment.html#property_content"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024author",
-            "name": "author",
-            "summary": "Author.",
-            "url": "classes/App-Entity-Comment.html#property_author"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024recipe",
             "name": "recipe",

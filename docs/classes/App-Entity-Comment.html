@@ -171,18 +171,18 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/App-Entity-Comment.html#property_author">$author</a>
-    <span>
-                        &nbsp;: <a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null            </span>
-</dt>
-<dd>Author.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Entity-Comment.html#property_content">$content</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 <dd>Content.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Entity-Comment.html#property_email">$email</a>
+    <span>
+                        &nbsp;: string|null            </span>
+</dt>
+<dd>Email.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Entity-Comment.html#property_id">$id</a>
@@ -192,6 +192,13 @@
 <dd>Primary key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Entity-Comment.html#property_nick">$nick</a>
+    <span>
+                        &nbsp;: string|null            </span>
+</dt>
+<dd>Nick.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Entity-Comment.html#property_recipe">$recipe</a>
     <span>
                         &nbsp;: <a href="classes/App-Entity-Recipe.html"><abbr title="\App\Entity\Recipe">Recipe</abbr></a>|null            </span>
@@ -199,18 +206,18 @@
 <dd>Recipe.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Entity-Comment.html#method_getAuthor">getAuthor()</a>
-    <span>
-                                &nbsp;: <a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null    </span>
-</dt>
-<dd>Getter for author.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Entity-Comment.html#method_getContent">getContent()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Getter for content.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Entity-Comment.html#method_getEmail">getEmail()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Getter for email.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Entity-Comment.html#method_getId">getId()</a>
@@ -220,6 +227,13 @@
 <dd>Getter for id.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Entity-Comment.html#method_getNick">getNick()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Getter for nick.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Entity-Comment.html#method_getRecipe">getRecipe()</a>
     <span>
                                 &nbsp;: <a href="classes/App-Entity-Recipe.html"><abbr title="\App\Entity\Recipe">Recipe</abbr></a>|null    </span>
@@ -227,18 +241,25 @@
 <dd>Getter for recipe.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Entity-Comment.html#method_setAuthor">setAuthor()</a>
-    <span>
-                                &nbsp;: $this    </span>
-</dt>
-<dd>Setter fot author.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Entity-Comment.html#method_setContent">setContent()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Setter for content.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Entity-Comment.html#method_setEmail">setEmail()</a>
+    <span>
+                                &nbsp;: $this    </span>
+</dt>
+<dd>Setter for email.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Entity-Comment.html#method_setNick">setNick()</a>
+    <span>
+                                &nbsp;: $this    </span>
+</dt>
+<dd>Setter for nick.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Entity-Comment.html#method_setRecipe">setRecipe()</a>
@@ -266,57 +287,6 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_author">
-        $author
-        <a href="classes/App-Entity-Comment.html#property_author" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">47</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Author.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null</span>
-    <span class="phpdocumentor-signature__name">$author</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-        <section class="phpdocumentor-description"></section>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">ORM\ManyToOne</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(
-fetch=&quot;EXTRA_LAZY&quot;
-)</p>
-</section>
-
-                                    </dd>
-                        </dl>
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="property_content">
         $content
         <a href="classes/App-Entity-Comment.html#property_content" class="headerlink"><i class="fas fa-link"></i></a>
@@ -326,7 +296,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -336,6 +306,39 @@ fetch=&quot;EXTRA_LAZY&quot;
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$content</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_email">
+        $email
+        <a href="classes/App-Entity-Comment.html#property_email" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Email.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string|null</span>
+    <span class="phpdocumentor-signature__name">$email</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
@@ -383,6 +386,39 @@ fetch=&quot;EXTRA_LAZY&quot;
             -private
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_nick">
+        $nick
+        <a href="classes/App-Entity-Comment.html#property_nick" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Nick.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string|null</span>
+    <span class="phpdocumentor-signature__name">$nick</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_recipe">
         $recipe
         <a href="classes/App-Entity-Comment.html#property_recipe" class="headerlink"><i class="fas fa-link"></i></a>
@@ -392,7 +428,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -440,39 +476,6 @@ fetch=&quot;EXTRA_LAZY&quot;
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getAuthor">
-        getAuthor()
-        <a href="classes/App-Entity-Comment.html#method_getAuthor" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">100</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Getter for author.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getAuthor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getContent">
         getContent()
         <a href="classes/App-Entity-Comment.html#method_getContent" class="headerlink"><i class="fas fa-link"></i></a>
@@ -480,7 +483,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -506,6 +509,39 @@ fetch=&quot;EXTRA_LAZY&quot;
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getEmail">
+        getEmail()
+        <a href="classes/App-Entity-Comment.html#method_getEmail" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">152</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Getter for email.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getEmail</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getId">
         getId()
         <a href="classes/App-Entity-Comment.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
@@ -513,7 +549,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -539,6 +575,39 @@ fetch=&quot;EXTRA_LAZY&quot;
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getNick">
+        getNick()
+        <a href="classes/App-Entity-Comment.html#method_getNick" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">128</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Getter for nick.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getNick</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getRecipe">
         getRecipe()
         <a href="classes/App-Entity-Comment.html#method_getRecipe" class="headerlink"><i class="fas fa-link"></i></a>
@@ -546,7 +615,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -572,29 +641,73 @@ fetch=&quot;EXTRA_LAZY&quot;
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setAuthor">
-        setAuthor()
-        <a href="classes/App-Entity-Comment.html#method_setAuthor" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setContent">
+        setContent()
+        <a href="classes/App-Entity-Comment.html#method_setContent" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Setter fot author.</p>
+        <p class="phpdocumentor-summary">Setter for content.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setAuthor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$author</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+                <span class="phpdocumentor-signature__name">setContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$author</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>|null</span>
+                <span class="phpdocumentor-signature__argument__name">$content</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">$this</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setEmail">
+        setEmail()
+        <a href="classes/App-Entity-Comment.html#method_setEmail" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">164</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Setter for email.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setEmail</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$email</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$email</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -615,29 +728,29 @@ fetch=&quot;EXTRA_LAZY&quot;
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setContent">
-        setContent()
-        <a href="classes/App-Entity-Comment.html#method_setContent" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setNick">
+        setNick()
+        <a href="classes/App-Entity-Comment.html#method_setNick" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Setter for content.</p>
+        <p class="phpdocumentor-summary">Setter for nick.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+                <span class="phpdocumentor-signature__name">setNick</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nick</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$content</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                <span class="phpdocumentor-signature__argument__name">$nick</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -665,7 +778,7 @@ fetch=&quot;EXTRA_LAZY&quot;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Comment.php"><a href="files/src-entity-comment.html"><abbr title="src/Entity/Comment.php">Comment.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -683,7 +796,8 @@ fetch=&quot;EXTRA_LAZY&quot;
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Recipe.html"><abbr title="\App\Entity\Recipe">Recipe</abbr></a>|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
