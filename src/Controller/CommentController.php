@@ -7,7 +7,6 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Recipe;
-use App\Entity\User;
 use App\Form\Type\CommentType;
 use App\Service\CommentServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,8 +30,8 @@ class CommentController extends AbstractController
     /**
      * Constructor.
      *
-     * @param CommentServiceInterface $commentService
-     * @param TranslatorInterface     $translator
+     * @param CommentServiceInterface $commentService Comment service
+     * @param TranslatorInterface     $translator     Translator
      */
     public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -43,10 +42,10 @@ class CommentController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
-     * @param Recipe  $recipe
+     * @param Request $request Request
+     * @param Recipe  $recipe  Recipe
      *
-     * @return Response
+     * @return Response Response
      */
     #[Route(
         '/recipe/{id}',
@@ -67,10 +66,10 @@ class CommentController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request
-     * @param Recipe  $recipe
+     * @param Request $request Request
+     * @param Recipe  $recipe  Recipe
      *
-     * @return Response
+     * @return Response Response
      */
     #[Route('/{id}/create', name: 'comment_create', requirements: ['id' => '[1-9]\d*'], methods: 'GET|POST')]
     public function create(Request $request, Recipe $recipe): Response

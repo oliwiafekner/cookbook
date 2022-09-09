@@ -22,8 +22,6 @@ class Category
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -32,8 +30,6 @@ class Category
 
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\Type(DateTimeImmutable::class)]
@@ -42,8 +38,6 @@ class Category
 
     /**
      * Title.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -53,8 +47,6 @@ class Category
 
     /**
      * Slug.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -115,7 +107,7 @@ class Category
     /**
      * Getter for slug.
      *
-     * @return string|null
+     * @return string|null Slug
      */
     public function getSlug(): ?string
     {
@@ -125,7 +117,7 @@ class Category
     /**
      * Setter for slug.
      *
-     * @param string $slug
+     * @param string $slug Slug
      *
      * @return $this
      */

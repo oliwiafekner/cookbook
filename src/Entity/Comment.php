@@ -20,8 +20,6 @@ class Comment
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,8 +28,6 @@ class Comment
 
     /**
      * Nick.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 100)]
     #[Assert\NotBlank]
@@ -39,8 +35,6 @@ class Comment
 
     /**
      * Email.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 180)]
     #[Assert\NotBlank]
@@ -48,8 +42,6 @@ class Comment
 
     /**
      * Content.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'text', nullable: false)]
     #[Assert\NotBlank]
@@ -69,7 +61,7 @@ class Comment
     /**
      * Getter for id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -79,7 +71,7 @@ class Comment
     /**
      * Getter for content.
      *
-     * @return string|null
+     * @return string|null Content
      */
     public function getContent(): ?string
     {
@@ -88,6 +80,8 @@ class Comment
 
     /**
      * Setter for content.
+     *
+     * @param string|null $content Content
      *
      * @return $this
      */
@@ -101,7 +95,7 @@ class Comment
     /**
      * Getter for recipe.
      *
-     * @return Recipe|null
+     * @return Recipe|null Recipe
      */
     public function getRecipe(): ?Recipe
     {
@@ -110,6 +104,8 @@ class Comment
 
     /**
      * Setter for recipe.
+     *
+     * @param Recipe|null $recipe Recipe
      *
      * @return $this
      */
@@ -123,7 +119,7 @@ class Comment
     /**
      * Getter for nick.
      *
-     * @return string|null
+     * @return string|null Nick
      */
     public function getNick(): ?string
     {
@@ -133,7 +129,7 @@ class Comment
     /**
      * Setter for nick.
      *
-     * @param string $nick
+     * @param string $nick Nick
      *
      * @return $this
      */
@@ -147,7 +143,7 @@ class Comment
     /**
      * Getter for email.
      *
-     * @return string|null
+     * @return string|null Email
      */
     public function getEmail(): ?string
     {
@@ -157,7 +153,7 @@ class Comment
     /**
      * Setter for email.
      *
-     * @param string $email
+     * @param string $email Email
      *
      * @return $this
      */

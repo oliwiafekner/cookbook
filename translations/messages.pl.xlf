@@ -6,6 +6,10 @@
         <source>label.actions</source>
         <target>Czynności</target>
       </trans-unit>
+      <trans-unit id="label.id">
+        <source>label.id</source>
+        <target>Id</target>
+      </trans-unit>
       <trans-unit id="label.created_at">
         <source>label.created_at</source>
         <target>Utworzono</target>
@@ -26,6 +30,10 @@
         <source>label.none</source>
         <target>Brak</target>
       </trans-unit>
+      <trans-unit id="label.email">
+        <source>label.email</source>
+        <target>Email</target>
+      </trans-unit>
       <trans-unit id="label.password">
         <source>label.password</source>
         <target>Hasło</target>
@@ -45,6 +53,10 @@
       <trans-unit id="label.recipe">
         <source>label.recipe</source>
         <target>Przepis</target>
+      </trans-unit>
+      <trans-unit id="label.nick">
+        <source>label.nick</source>
+        <target>Nick</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>

@@ -7,7 +7,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Comment;
 use App\Entity\Recipe;
-use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 /**

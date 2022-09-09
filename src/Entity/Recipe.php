@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -26,8 +27,6 @@ class Recipe
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -36,8 +35,6 @@ class Recipe
 
     /**
      * Title.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\Type('string')]
@@ -48,8 +45,6 @@ class Recipe
     /**
      * Created at.
      *
-     * @var DateTimeImmutable|null
-     *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
@@ -59,8 +54,6 @@ class Recipe
 
     /**
      * Content.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 16777215)]
     #[Assert\NotBlank]
@@ -83,8 +76,6 @@ class Recipe
      * @ORM\ManyToOne(
      *     fetch="EXTRA_LAZY"
      * )
-     *
-     * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -110,7 +101,7 @@ class Recipe
      * @var ArrayCollection
      */
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class)]
-    private $comment;
+    private Collection $comment;
 
     /**
      * Getter for Id.
@@ -175,9 +166,7 @@ class Recipe
     /**
      * Setter for content.
      *
-     * @param string|null $content
-     *
-     * @return void
+     * @param string|null $content Content
      */
     public function setContent(?string $content): void
     {
@@ -187,7 +176,7 @@ class Recipe
     /**
      * Getter for category.
      *
-     * @return Category|null
+     * @return Category|null Category
      */
     public function getCategory(): ?Category
     {
@@ -197,7 +186,7 @@ class Recipe
     /**
      * Setter for category.
      *
-     * @param Category|null $category
+     * @param Category|null $category Category.
      *
      * @return $this
      */
@@ -211,7 +200,7 @@ class Recipe
     /**
      * Getter for author.
      *
-     * @return User|null
+     * @return User|null User
      */
     public function getAuthor(): ?User
     {
@@ -221,7 +210,7 @@ class Recipe
     /**
      * Setter for author.
      *
-     * @param User|null $author
+     * @param User|null $author Author
      *
      * @return $this
      */
@@ -235,7 +224,7 @@ class Recipe
     /**
      * Getter for comment.
      *
-     * @return Collection
+     * @return Collection<int, Comment> Comment collection
      */
     public function getComment(): Collection
     {
@@ -245,7 +234,7 @@ class Recipe
     /**
      * Add comment.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment
      *
      * @return $this
      */
@@ -262,7 +251,7 @@ class Recipe
     /**
      * Remove comment.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment
      *
      * @return $this
      */
